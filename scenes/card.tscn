@@ -1,0 +1,71 @@
+[gd_scene load_steps=14 format=3 uid="uid://x521khhyvkd6"]
+
+[ext_resource type="Script" path="res://code/card.gd" id="1_mhxhv"]
+[ext_resource type="Texture2D" uid="uid://b4n8mxcp42f0a" path="res://assets/img/card-bg.png" id="1_rnvry"]
+[ext_resource type="Texture2D" uid="uid://cdm4jephaovof" path="res://assets/img/char1.png" id="2_s0ugf"]
+[ext_resource type="Texture2D" uid="uid://dorow15c4rgxy" path="res://assets/img/char2.png" id="4_xlnln"]
+[ext_resource type="Texture2D" uid="uid://b5ngj40vwqsdv" path="res://assets/img/char3.png" id="5_t5xwj"]
+[ext_resource type="Texture2D" uid="uid://ta6ivontlvpg" path="res://assets/img/char4.png" id="6_mdkrs"]
+[ext_resource type="Texture2D" uid="uid://dael3t5sr43pa" path="res://assets/img/char5.png" id="7_mgexc"]
+[ext_resource type="Texture2D" uid="uid://gp1y4w42j11j" path="res://assets/img/char6.png" id="8_rltfp"]
+[ext_resource type="Texture2D" uid="uid://bhp5ll2ytf6fo" path="res://assets/img/char7.png" id="9_bubbr"]
+[ext_resource type="Texture2D" uid="uid://dqc0d731tjwyr" path="res://assets/img/char8.png" id="10_fifci"]
+[ext_resource type="Texture2D" uid="uid://dkfops2174e6s" path="res://assets/img/char9.png" id="11_do3q7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jveo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s0ugf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xlnln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t5xwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mdkrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mgexc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rltfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bubbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fifci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_do3q7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb7d6"]
+size = Vector2(300, 400)
+
+[node name="Card" type="Area2D"]
+script = ExtResource("1_mhxhv")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_rnvry")
+centered = false
+
+[node name="Character" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(37, 58)
+scale = Vector2(1.185, 1.185)
+sprite_frames = SubResource("SpriteFrames_6jveo")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(150.5, 200.5)
+shape = SubResource("RectangleShape2D_mb7d6")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

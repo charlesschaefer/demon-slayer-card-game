@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwbbl3e8l3jke"]
+
+[ext_resource type="Texture2D" uid="uid://l0s30uskdg6c" path="res://assets/img/background.png" id="1_x0cey"]
+[ext_resource type="Script" path="res://code/game.gd" id="1_yhh7n"]
+[ext_resource type="AudioStream" uid="uid://8fxqv2jl1dbb" path="res://assets/audio/Dragons And Fireworks OGG.ogg" id="3_usgna"]
+[ext_resource type="PackedScene" uid="uid://x521khhyvkd6" path="res://scenes/card.tscn" id="4_gd5dk"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_yhh7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("1_x0cey")
+centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_usgna")
+autoplay = true
+
+[node name="ChallengeCard" parent="." instance=ExtResource("4_gd5dk")]
+position = Vector2(1169, 250)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_direction = 2
+offset_right = 1099.0
+offset_bottom = 965.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="Card-1" parent="GridContainer" instance=ExtResource("4_gd5dk")]
+position = Vector2(46, 46)
+
+[node name="Card-2" parent="GridContainer" instance=ExtResource("4_gd5dk")]
+position = Vector2(392, 46)
+
+[node name="Card-3" parent="GridContainer" instance=ExtResource("4_gd5dk")]
+position = Vector2(738, 46)
+
+[node name="Card-4" parent="GridContainer" instance=ExtResource("4_gd5dk")]
+position = Vector2(46, 492)
+
+[node name="Card-5" parent="GridContainer" instance=ExtResource("4_gd5dk")]
+position = Vector2(392, 492)
+
+[node name="Card-6" parent="GridContainer" instance=ExtResource("4_gd5dk")]
+position = Vector2(738, 492)
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
